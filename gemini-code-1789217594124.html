@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Web Roguelike</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+        <div class="stats-bar">
+            <div>HP: <span id="hp-val">100</span>/<span id="max-hp-val">100</span></div>
+            <div>Level: <span id="lvl-val">1</span></div>
+            <div>Floor: <span id="floor-val">1</span></div>
+            <div>DMG: <span id="dmg-val">10</span> | SPD: <span id="spd-val">1</span></div>
+        </div>
+        <div class="xp-bar-container">
+            <div id="xp-bar"></div>
+        </div>
+        <div class="controls-hint">WASD to Move | Mouse to Aim | Left Click/Space to Attack</div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="overlay">
+        <h1>3D ROGUELIKE</h1>
+        <p>Explore the dungeon, defeat enemies, and level up!</p>
+        <button id="start-btn">Start Game</button>
+    </div>
+
+    <!-- Level Up Screen -->
+    <div id="levelup-screen" class="overlay hidden">
+        <h2>LEVEL UP!</h2>
+        <p>Choose an upgrade:</p>
+        <div class="upgrade-options">
+            <button class="upgrade-btn" data-type="hp">+ Max HP</button>
+            <button class="upgrade-btn" data-type="dmg">+ Damage</button>
+            <button class="upgrade-btn" data-type="spd">+ Speed</button>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="overlay hidden">
+        <h1 class="red">YOU DIED</h1>
+        <p>Floor reached: <span id="final-floor"></span></p>
+        <p>Level reached: <span id="final-level"></span></p>
+        <button id="restart-btn">Play Again</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
